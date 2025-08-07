@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  width: 100%;
+  height: 100vh;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  background-color: #fcf8e0;
+}
+
+@theme{
+  --color-ijo-chafi: #01a99c;
+  --color-cream-chafi: #fcf8e0;
+  --color-merah-chafi: #f5978f;
+  --color-kuning-chafi: #fce052;
+  --color-hitam-chafi: #424242;
+}
+
+.leaflet-container {
+  height: 50vh;
+}
