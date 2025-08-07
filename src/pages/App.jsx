@@ -54,15 +54,18 @@ export default function App() {
 
   return (
     <Layout>
-      <div className="text-xl">User Get Location</div>
-      <button className="bg-ijo-chafi px-5 text-lg font-bold text-cream-chafi m-5 w-max" onClick={sendLocation}>Get my Location</button>
+      <div className="flex justify-center">
+        <img src="/logo-chafi.png" alt="Logo" className='w-75'/>
+      </div>
+      <div className="text-2xl pt-5 text-center font-bold text-ijo-chafi mb-5">Sistem Absensi</div>
 
+{/*
       <div className="">{userLocation && (
         <div className="bg-merah-chafi">
           <p>latitude : {userLocation[0]}</p>
           <p>longitude : {userLocation[1]}</p>
         </div>
-      )}</div>
+      )}</div> */}
 
       <div id="map">
       <MapContainer center={[-0.8886556,119.8781443]} zoom={25} scrollWheelZoom={false}>
@@ -83,7 +86,9 @@ export default function App() {
             </Marker>
           )}
       </MapContainer>
+
       </div>
+      <button className="bg-ijo-chafi px-5 text-lg font-bold text-cream-chafi w-full mt-12 mb-5 py-5" onClick={sendLocation}>Kirim Absensi Sekarang!</button>
     </Layout>
   )
 }

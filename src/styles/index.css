@@ -21,5 +21,14 @@
 }
 
 .leaflet-container {
-  height: 50vh;
+  width: auto;
+  height: 40vh;
+  justify-content: center;
+}
+
+#map {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
