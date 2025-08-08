@@ -13,11 +13,69 @@
 }
 
 @theme{
-  --color-ijo-chafi: #01a99c;
-  --color-cream-chafi: #fcf8e0;
-  --color-merah-chafi: #f5978f;
-  --color-kuning-chafi: #fce052;
-  --color-hitam-chafi: #424242;
+--color-persian-green-50: #effefb;
+--color-persian-green-100: #c8fff4;
+--color-persian-green-200: #91feea;
+--color-persian-green-300: #52f6df;
+--color-persian-green-400: #1ee3cc;
+--color-persian-green-500: #05c7b3;
+--color-persian-green-600: #01a99c; /* Main Color */
+--color-persian-green-700: #067f77;
+--color-persian-green-800: #0a6560;
+--color-persian-green-900: #0e5350;
+--color-persian-green-950: #003333;
+
+
+--color-off-yellow-50: #fcf8e0; /* Main Color */
+--color-off-yellow-100: #fbf4c6;
+--color-off-yellow-200: #f8e790;
+--color-off-yellow-300: #f4d150;
+--color-off-yellow-400: #eeba21;
+--color-off-yellow-500: #dfa213;
+--color-off-yellow-600: #c07d0e;
+--color-off-yellow-700: #995a0f;
+--color-off-yellow-800: #7f4714;
+--color-off-yellow-900: #6c3b17;
+--color-off-yellow-950: #3f1d09;
+
+
+--color-mona-lisa-50: #fef3f2; /* Main Color */
+--color-mona-lisa-100: #fde5e3;
+--color-mona-lisa-200: #fcd0cc;
+--color-mona-lisa-300: #f9aea8;
+--color-mona-lisa-400: #f5978f;
+--color-mona-lisa-500: #e8574b;
+--color-mona-lisa-600: #d53a2d;
+--color-mona-lisa-700: #b32d22;
+--color-mona-lisa-800: #942920;
+--color-mona-lisa-900: #7b2821;
+--color-mona-lisa-950: #43100c;
+
+
+--color-energy-yellow-50: #fefce8;
+--color-energy-yellow-100: #fef9c3;
+--color-energy-yellow-200: #fdee8b;
+--color-energy-yellow-300: #fce052;  /* Main Color */
+--color-energy-yellow-400: #f9ca16;
+--color-energy-yellow-500: #e9b109;
+--color-energy-yellow-600: #c98905;
+--color-energy-yellow-700: #a06108;
+--color-energy-yellow-800: #844c0f;
+--color-energy-yellow-900: #703f13;
+--color-energy-yellow-950: #422006;
+
+
+--color-masala-50: #f6f6f6;
+--color-masala-100: #e7e7e7;
+--color-masala-200: #d1d1d1;
+--color-masala-300: #b0b0b0;
+--color-masala-400: #888888;
+--color-masala-500: #6d6d6d;
+--color-masala-600: #5d5d5d;
+--color-masala-700: #4f4f4f;
+--color-masala-800: #424242; /* Main Color */
+--color-masala-900: #3d3d3d;
+--color-masala-950: #262626;
 }
 
 .leaflet-container {
