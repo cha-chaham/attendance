@@ -55,23 +55,47 @@ function FlyToUserLocation({ userLocation }) {
 
 export default function App() {
   const [userLocation, setUserLocation] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  const getUserLocation = () => {
-    if (!navigator.geolocation) {
-      alert('Geolocation is not supported by your browser.')
-      return
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords
-        setUserLocation([latitude, longitude])
-      },
-      (error) => {
-        alert('Unable to retrieve your location: ' + error.message)
-      }
-    )
+const getUserLocation = () => {
+  setLoading(true)
+  if (!navigator.geolocation) {
+    setLoading(false)
+    alert('Geolocation is not supported by your browser.')
+    return
   }
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+    setLoading(false)
+      const { latitude, longitude } = position.coords
+      setUserLocation([latitude, longitude])
+    },
+    (error) => {
+    setLoading(false)
+      console.error('Geolocation error:', error)
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert("Izin lokasi ditolak.")
+          break
+        case error.POSITION_UNAVAILABLE:
+          alert("Informasi lokasi tidak tersedia.")
+          break
+        case error.TIMEOUT:
+          alert("Waktu pengambilan lokasi habis.")
+          break
+        default:
+          alert("Terjadi kesalahan tidak diketahui.")
+          break
+      }
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  )
+}
+
 
   const sendLocation = () => {
     if(!userLocation) {
@@ -101,7 +125,7 @@ export default function App() {
         className="bg-persian-green-600 px-5 py-2 text-lg font-bold text-off-yellow-50 w-full justify-center flex cursor-pointer hover:bg-persian-green-700 ease-in transition"
         onClick={getUserLocation}
       >
-        Refresh Lokasi Saya
+        {loading ? "Mengambil lokasi..." : "Refresh Lokasi Saya"}
       </button>
 
 {/*
