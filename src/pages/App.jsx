@@ -56,6 +56,17 @@ function FlyToUserLocation({ userLocation }) {
 export default function App() {
   const [userLocation, setUserLocation] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+      useEffect(() => {
+        const timerId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000); // Update every second
+
+        return () => {
+            clearInterval(timerId); // Cleanup on unmount
+        };
+    }, []); // Empty dependency array means this effect runs once on mount
 
 const getUserLocation = () => {
   setLoading(true)
@@ -120,6 +131,8 @@ const getUserLocation = () => {
         <img src="/logo-chafi.png" alt="Logo" className='w-75'/>
       </div>
       <div className="text-2xl pt-5 text-center font-bold text-persian-green-600 mb-5">Sistem Absensi</div>
+
+      <p className='text-black'>{currentTime.toLocaleTimeString()}</p>
 
        <button
         className="bg-persian-green-600 px-5 py-2 text-lg font-bold text-off-yellow-50 w-full justify-center flex cursor-pointer hover:bg-persian-green-700 ease-in transition"
