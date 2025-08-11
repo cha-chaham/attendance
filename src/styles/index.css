@@ -20,14 +20,14 @@
 --color-persian-green-300: #52f6df;
 --color-persian-green-400: #1ee3cc;
 --color-persian-green-500: #05c7b3;
---color-persian-green-600: #01a99c; /* Main Color */
+--color-persian-green-600-main: #01a99c; /* Main Color */
 --color-persian-green-700: #067f77;
 --color-persian-green-800: #0a6560;
 --color-persian-green-900: #0e5350;
 --color-persian-green-950: #003333;
 
 
---color-off-yellow-50: #fcf8e0; /* Main Color */
+--color-off-yellow-50-main: #fcf8e0; /* Main Color */
 --color-off-yellow-100: #fbf4c6;
 --color-off-yellow-200: #f8e790;
 --color-off-yellow-300: #f4d150;
@@ -40,11 +40,11 @@
 --color-off-yellow-950: #3f1d09;
 
 
---color-mona-lisa-50: #fef3f2; /* Main Color */
+--color-mona-lisa-50: #fef3f2;
 --color-mona-lisa-100: #fde5e3;
 --color-mona-lisa-200: #fcd0cc;
 --color-mona-lisa-300: #f9aea8;
---color-mona-lisa-400: #f5978f;
+--color-mona-lisa-400-main: #f5978f; /* Main Color */
 --color-mona-lisa-500: #e8574b;
 --color-mona-lisa-600: #d53a2d;
 --color-mona-lisa-700: #b32d22;
@@ -56,7 +56,7 @@
 --color-energy-yellow-50: #fefce8;
 --color-energy-yellow-100: #fef9c3;
 --color-energy-yellow-200: #fdee8b;
---color-energy-yellow-300: #fce052;  /* Main Color */
+--color-energy-yellow-300-main: #fce052;  /* Main Color */
 --color-energy-yellow-400: #f9ca16;
 --color-energy-yellow-500: #e9b109;
 --color-energy-yellow-600: #c98905;

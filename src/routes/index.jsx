@@ -3,12 +3,14 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from '@/pages/App'
 import Dashboard from '@/pages/Dashboard';
 import Login from '@/pages/Login';
+import { setAxiosConfig } from '@/utils/axiosWithConfig';
 
 export default function Router() {
-    const [isAuth, setIsAuth] = useState(false)
+    const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"))
 
     useEffect(() => {
       setIsAuth(localStorage.getItem('isAuth'))
+      setAxiosConfig("", import.meta.env.VITE_BASE_URL);
     }, [])
 
 

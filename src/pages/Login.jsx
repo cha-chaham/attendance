@@ -9,8 +9,6 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [pass, setPass] = useState('');
 
-    const envUsername = import.meta.env.VITE_USERNAME
-
     const handleLogin = () => {
         if (username === import.meta.env.VITE_USERNAME && pass === import.meta.env.VITE_PASSWORD) {
             localStorage.setItem("isAuth", true)
@@ -22,7 +20,7 @@ export default function Login() {
         <div className="flex justify-center">
         <img src="/logo-chafi.png" alt="Logo" className='w-75'/>
       </div>
-      <div className="text-2xl pt-5 text-center font-bold text-persian-green-600 mb-5">Login</div>
+      <div className="text-2xl pt-5 text-center font-bold text-persian-green-600-main mb-5">Login</div>
 
       <div className="mt-5">
         <fieldset className="fieldset rounded-box p-4 mx-15">

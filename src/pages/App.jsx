@@ -1,4 +1,5 @@
 import Layout from '@/components/layout'
+import { createAttendance } from '@/utils/api'
 import React, {useEffect, useState} from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents, useMapEvent, Circle } from 'react-leaflet'
 import { useNavigate } from 'react-router-dom'
@@ -112,6 +113,12 @@ const getUserLocation = () => {
 
 
   const sendLocation = () => {
+    const time = currentTime.toISOString()
+    const data = {
+      latitude : userLocation[0],
+      longitude : userLocation[1],
+      time : time
+    }
     if(!userLocation) {
       alert("Lokasi Masih Kosong")
     } else {
@@ -119,10 +126,14 @@ const getUserLocation = () => {
       const userLatLng = L.latLng(userLocation)
       const distance = userLatLng.distanceTo(center)
 
+
       if (distance >= 150) {
-        console.log(userLocation)
+        console.log(userLocation, currentTime)
         alert("Anda Jauh Dari Lokasi Kedai!. Klik Map Untuk Refresh Lokasi")
+        createAttendance(data)
       } else {
+        console.log(data)
+        createAttendance(data)
         alert("Lokasi Terkirim")
       }
     }
@@ -133,12 +144,12 @@ const getUserLocation = () => {
       <div className="flex justify-center">
         <img src="/logo-chafi.png" alt="Logo" className='w-75'/>
       </div>
-      <div className="text-2xl pt-5 text-center font-bold text-persian-green-600 mb-5">Sistem Absensi</div>
+      <div className="text-2xl pt-5 text-center font-bold text-persian-green-600-main mb-5">Sistem Absensi</div>
 
-      <p className='text-black'>{currentTime.toLocaleTimeString()}</p>
+      <p className='text-center font-bold text-4xl mb-5 text-persian-green-600-main'>{currentTime.toLocaleTimeString()}</p>
 
        <button
-        className="bg-persian-green-600 px-5 py-2 text-lg font-bold text-off-yellow-50 w-full justify-center flex cursor-pointer hover:bg-persian-green-700 ease-in transition"
+        className="bg-persian-green-600-main px-5 py-2 text-lg font-bold text-off-yellow-50 w-full justify-center flex cursor-pointer hover:bg-persian-green-700 ease-in transition"
         onClick={getUserLocation}
       >
         {loading ? "Mengambil lokasi..." : "Refresh Lokasi Saya"}
@@ -154,12 +165,12 @@ const getUserLocation = () => {
 
        <div className="mt-5">
         {userLocation ? (
-          <div className='flex flex-row gap-5 text-center justify-center '>
-            <p>Latitude: {userLocation[0]}</p>
-            <p>Longitude: {userLocation[1]}</p>
+          <div className='flex flex-col gap-1 mb-4 text-center justify-center '>
+          <p className='text-gray-400 text-center'>Lokasi didapatkan!</p>
+          <p className='text-gray-400 text-center'>Jika lokasi belum sesuai, pastikan GPS Handphone menyala dan klik refresh sekali lagi</p>
           </div>
         ) : (
-          <p className='text-gray-400 text-center'>Menunggu Lokasi... Klik Tombol Refresh Lokasi!</p>
+          <p className='text-gray-400 text-center mb-4'>Menunggu Lokasi... Klik Tombol Refresh Lokasi!</p>
         )}
       </div>
 
@@ -187,8 +198,7 @@ const getUserLocation = () => {
       </MapContainer>
 
       </div>
-      <button className="bg-persian-green-600 px-5 text-lg font-bold text-off-yellow-50 w-full mt-12 mb-5 py-5 cursor-pointer hover:bg-persian-green-700 ease-in transition" onClick={sendLocation}>Kirim Absensi Sekarang!</button>
-      <button className="bg-persian-green-600 px-5 text-lg font-bold text-off-yellow-50 w-full mt-12 mb-5 py-5 cursor-pointer hover:bg-persian-green-700 ease-in transition" onClick={() => navigate("/login")}>Login</button>
+      <button className="bg-persian-green-600-main text-lg font-bold text-off-yellow-50 w-full mt-5 mb-5 py-5 cursor-pointer hover:bg-persian-green-700 ease-in transition" onClick={sendLocation}>Kirim Absensi Sekarang!</button>
     </Layout>
   )
 }
