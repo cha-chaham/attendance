@@ -1,6 +1,7 @@
 import Layout from '@/components/layout'
 import React, {useEffect, useState} from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents, useMapEvent, Circle } from 'react-leaflet'
+import { useNavigate } from 'react-router-dom'
 
 // function LocationMarker({ setUserLocation }) {
 //   const [position, setPosition] = useState(null)
@@ -67,6 +68,8 @@ export default function App() {
             clearInterval(timerId); // Cleanup on unmount
         };
     }, []); // Empty dependency array means this effect runs once on mount
+
+    const navigate = useNavigate()
 
 const getUserLocation = () => {
   setLoading(true)
@@ -185,6 +188,7 @@ const getUserLocation = () => {
 
       </div>
       <button className="bg-persian-green-600 px-5 text-lg font-bold text-off-yellow-50 w-full mt-12 mb-5 py-5 cursor-pointer hover:bg-persian-green-700 ease-in transition" onClick={sendLocation}>Kirim Absensi Sekarang!</button>
+      <button className="bg-persian-green-600 px-5 text-lg font-bold text-off-yellow-50 w-full mt-12 mb-5 py-5 cursor-pointer hover:bg-persian-green-700 ease-in transition" onClick={() => navigate("/login")}>Login</button>
     </Layout>
   )
 }
