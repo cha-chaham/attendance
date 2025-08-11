@@ -24,6 +24,10 @@ export default function Router() {
         {
             path: "/login",
             element: <Login/>
+        },
+        {
+            path: "*",
+            element: <div>404 Page Not Found</div>
         }
     ])
 
